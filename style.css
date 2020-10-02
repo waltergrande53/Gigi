@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Caveat', cursive;
+}
+#home{
+  background-color:#09ED58;
+ top: 20px;
+  color: red;
+  margin-top: 50px;
+  width: 100%;
+  padding: 4.5%;
+}
+
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%; 
+  overflow: hidden;
+  z-index: 2;
+}
+.home-title{
+    text-shadow: 3px 3px 2px black;
+  text-align: center;
+}
+.images{
+  width: 100%;
+  display: block;
+}
+ .home_images{
+  width: 50%;
+  margin: 1%;
+    box-shadow: 5px 5px 30px red ;
+}
+.home_images:nth-child(1) { 
+  margin-left:5% ;
+}
+.home_images:nth-child(2) { 
+  margin-left:45%;
+}
+.home_images:nth-child(3) { 
+  margin-left:5%;
+}
+.alert{
+ text-align: center;
+ font-size: 20px;
+ z-index: 1;
+}
+.card {
+  margin: 5% 0%;
+  z-index: 1;
+
+}
+
+.card-body {
+  margin: 0% 0% 0% 3%;
+  padding: 6% 0%;
+
+}
