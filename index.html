@@ -4,226 +4,208 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>HTML + Bootstrap</title>
-  
+  <title>Gigi's Shop</title>
   <!-- HTML -->
-  
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/css/bootstrap.min.css">
-
   <!-- Custom Styles -->
+  <!-- query -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="color:red;">
-  <a class="navbar-brand" href="#">Gigi's Shop</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" id="home_link" href="#home">Home <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#shop">Shop </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Cart </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#"></a>
-      </li>
-    </ul>
-  </div>
-</nav>
- <section id="home" >
-  
-<div class="home-title" style="font-size: 50px;">
-     Gigi’s Shoppp
-</div>   
-   <div class="alert alert-danger" role="alert">
-     <h4 class="alert-heading">alert</h4>
-     <p>You muat be from Chatsworto order.</p>
-    
-   </div>
+    <a class="navbar-brand" href="#">Gigi's Shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" id="home_link"  onclick="home_display()">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  onclick="shop_display()">Shop </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  onclick="cart_display()">Cart </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="home" >
+    <div class="home-title" style="font-size: 50px;">
+      Gigi’s Shoppp
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">alert</h4>
+      <p>You must be able to pick up at chatsworth to order .</p>
+    </div>
     <div class="images">
       <img class='home_images' src="1.jpeg" alt="" />
-      <img class='home_images' src="2.jpeg" alt="" />      
+      <img class='home_images' src="2.jpeg" alt="" />
       <img class='home_images' src="3.jpeg" alt="" />
+    </div>
+  </div>
+  <section id="shop-section">
+    <div id="shop">
+      <h1>Items Available</h1>
+    </div>
+    <div class="container">
+       <!-- Card deck -->
+      <div class="card-deck row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- Card -->
+          <div class="card">
+            <!--Card image-->
+            <div class="view overlay">
+              <img class="card-img-top" src="1.jpeg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title">
+                Skittles</h4>
+              <!--Text-->
+              <p class="card-text price"><strong>$.500</strong></p>
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(0)" >add to cart</button>
+            </div>
+          </div>
+        
+          <!-- Card -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- Card -->
+          <div class="card mb-4">
+            <!--Card image-->
+            <div class="view overlay">
+              <img class="card-img-top" src="2.jpeg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title">Sour patch watermelon</h4>
+              <!--Text-->
+              <p class="card-text price"><strong>$.500</strong></p>
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(1)" >add to cart</button>
+            </div>
+          </div>
+          <!-- Card -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- Card -->
+          <div class="card">
+            <!--Card image-->
+            <div class="view overlay">
+              <img class="card-img-top" src="3.jpeg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title">
+                Gummy bears</h4>
+              <!--Text-->
+              <p class="card-text price">$5.00</p>
 
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(2)">add to cart</button>
+            </div>
+          </div>
+          <!-- Card -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- Card -->
+          <div class="card mb-4">
+            <!--Card image-->
+            <div class="view overlay">
+              <img class="card-img-top" src="4.jpeg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title">
+                Peaches</h4>
+              <!--Text-->
+              <p class="card-text price"><strong>$.500</strong></p>
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(3)">add to cart</button>
+            </div>
+          </div>
+          <!-- Card -->
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- Card -->
+          <div class="card mb-4">
+            <!--Card image-->
+            <div class="view overlay">
+              <img class="card-img-top" src="5.jpeg" alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title">
+                Sour patch kids</h4>
+              <!--Text-->
+              <p class="card-text price"><strong>$.500</strong></p>
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(4)">add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card deck -->
     </div>
-  </section>
-  <section id="shop">
-    <div>
-     <div class="container">
-       <!-- Card deck -->
-       <div class="card-deck row">
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- Card -->
-           <div class="card">
-             <!--Card image-->
-             <div class="view overlay">
-               <img class="card-img-top" src="1.jpeg" alt="Card image cap">
-               <a href="#!">
-                 <div class="mask rgba-white-slight"></div>
-               </a>
-             </div>
-             <!--Card content-->
-             <div class="card-body">
-               <!--Title-->
-               <h4 class="card-title">1 Card title</h4>
-               <!--Text-->
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button type="button" class="btn btn-light-blue btn-md">add to cart</button>
-             </div>
-           </div>
-           <!-- Card -->
-         </div>
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- Card -->
-           <div class="card mb-4">
-             <!--Card image-->
-             <div class="view overlay">
-               <img class="card-img-top" src="2.jpeg" alt="Card image cap">
-               <a href="#!">
-                 <div class="mask rgba-white-slight"></div>
-               </a>
-             </div>
-             <!--Card content-->
-             <div class="card-body">
-               <!--Title-->
-               <h4 class="card-title">2 Card title</h4>
-               <!--Text-->
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button type="button" class="btn btn-light-blue btn-md">add to cart</button>
-             </div>
-           </div>
-           <!-- Card -->
-         </div>
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- Card -->
-           <div class="card mb-4">
-             <!--Card image-->
-             <div class="view overlay">
-               <img class="card-img-top" src="1.jpeg" alt="Card image cap">
-               <a href="#!">
-                 <div class="mask rgba-white-slight"></div>
-               </a>
-             </div>
-             <!--Card content-->
-             <div class="card-body">
-               <!--Title-->
-               <h4 class="card-title">title</h4>
-               <!--Text-->
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button type="button" class="btn btn-light-blue btn-md">add to cart</button>
-             </div>
-           </div>
-           <!-- Card -->
-         </div>
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- Card -->
-           <div class="card">
-             <!--Card image-->
-             <div class="view overlay">
-               <img class="card-img-top" src="1.jpeg" alt="Card image cap">
-               <a href="#!">
-                 <div class="mask rgba-white-slight"></div>
-               </a>
-             </div>
-             <!--Card content-->
-             <div class="card-body">
-               <!--Title-->
-               <h4 class="card-title">4 Card title</h4>
-               <!--Text-->
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button type="button" class="btn btn-light-blue btn-md">add to cart</button>
-             </div>
-           </div>
-           <!-- Card -->
-         </div>
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- Card -->
-           <div class="card mb-4">
-             <!--Card image-->
-             <div class="view overlay">
-               <img class="card-img-top" src="3.jpeg" alt="Card image cap">
-               <a href="#!">
-                 <div class="mask rgba-white-slight"></div>
-               </a>
-             </div>
-             <!--Card content-->
-             <div class="card-body">
-               <!--Title-->
-               <h4 class="card-title">5 Card title</h4>
-               <!--Text-->
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button type="button" class="btn btn-light-blue btn-md">add to cart</button>
-             </div>
-           </div>
-           <!-- Card -->
-         </div>
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- Card -->
-           <div class="card mb-4">
-             <!--Card image-->
-             <div class="view overlay">
-               <img class="card-img-top" src="2.jpeg" alt="Card image cap">
-               <a href="#!">
-                 <div class="mask rgba-white-slight"></div>
-               </a>
-             </div>
-             <!--Card content-->
-             <div class="card-body">
-               <!--Title-->
-               <h4 class="card-title">6 Card title</h4>
-               <!--Text-->
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button type="button" class="btn btn-light-blue btn-md">add to cart</button>
-             </div>
-           </div>
-           <!-- Card -->
-         </div>
-         <div class="col-xs-12 col-sm-6 col-md-4">
-           <!-- Card -->
-           <div class="card mb-4">
-             <!--Card image-->
-             <div class="view overlay">
-               <img class="card-img-top" src="3.jpeg" alt="Card image cap">
-               <a href="#!">
-                 <div class="mask rgba-white-slight"></div>
-               </a>
-             </div>
-             <!--Card content-->
-             <div class="card-body">
-               <!--Title-->
-               <h4 class="card-title">7 Card title</h4>
-               <!--Text-->
-               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-               <button type="button" class="btn btn-light-blue btn-md">add to cart</button>
-             </div>
-           </div>
-           <!-- Card -->
-         </div>
-       </div>
-       <!-- Card deck -->
+    
      </div>
+  </section>
+  <section id="order">
+    <div id="total">
+      
     </div>
   </section>
+  <section id="cart">
+  </section>
+  <button  id="check_out_btn" onclick="check_out()"> Check out</button>
+  <section class="contact-form-section">
+
+  <form class="contact-form">
+    <label for="">Name</label><br />
+      <input class="name" type="text" placeholder="name" /><br />
+      <label for="">Email</label><br />
+      <input class="email" type="email" placeholder="email" /><br />
+      <label for="">Order</label><br />
+      <div class="message"
+      ></div
+      ><br />
+      <button type="submit">Submit</button>
+    </form>
+     </section>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
 
   <!-- Project -->
   <script src="main.js"></script>
 </body>
+
 </html>
