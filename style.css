@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Caveat', cursive;
+  font-family: cursive;
 }
 #home{
   background-color:#09ED58;
@@ -12,6 +12,7 @@
   margin-top: 50px;
   width: 100%;
   padding: 4.5%;
+ 
 }
 
 .navbar{
@@ -57,5 +58,69 @@
 .card-body {
   margin: 0% 0% 0% 3%;
   padding: 6% 0%;
+
+}
+#shop{
+  text-align: center;
+  display: none;
+}
+.container{
+  display: none;
+}
+.contact-form{
+  display: none;
+}
+#order:nth-child(odd){
+ width: 100%;
+margin: auto;
+display: none;
+color:white;
+}
+.list_items{
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+ justify-items: center;
+  flex-direction: row;
+  
+}
+.delete_btn{
+ 
+  
+}
+#check_out_btn{
+  display: none;
+}
+#order{
+
+    background-color: #09ED58;
+    top: 20px;
+    color: red;
+    margin-top: 50px;
+    width: 100%;
+
+}
+.contact-form{
+    top: 20px;
+    background: white;
+    color: red;
+    margin-top: 50%;
+    margin: auto;
+    width: 50%;
+   text-align: center;
+   border: solid 3px black;
+  
+}
+
+#shop-section{
+     background-color: #09ED58;
+    top: 20px;
+    color: red;
+    margin-top: 50px;
+    width: 100%;
+
+}
+.contact-form-section{
+  background-color: #09ED58;
 
 }
