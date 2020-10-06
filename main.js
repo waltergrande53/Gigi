@@ -53,7 +53,7 @@ function sentEmail(name, email, message)
     Host: "smtp.gmail.com",
     Username: "waltergrande53@gmail.com",
     Password: "soxopankraodwpas",
-    To: 'waltergrande53@gmail.com',
+    To: 'Gigishoppp88@gmail.com',
     From: `${email}`,
     Subject: `${name} sent you a message`,
     Body: ` Message:${message}`
