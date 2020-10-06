@@ -99,11 +99,12 @@ display: none;
  display:none;
 }
 #order{
-
-    background-color: #09ED58;
+   background-color:#09ED58;
+   top: 20px;
     color: red;
-    width: 50%;
-    margin: auto;
+    margin-top: 50px;
+    width: 100%;
+    padding:1%;
 
 }
 #shop-section{
