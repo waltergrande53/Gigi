@@ -53,7 +53,7 @@ function sentEmail(name, email, message)
     Host: "smtp.gmail.com",
     Username: "waltergrande53@gmail.com",
     Password: "soxopankraodwpas",
-    To: 'Gigishoppp88@gmail.com',
+    To: 'waltergrande53@gmail.com',
     From: `${email}`,
     Subject: `${name} sent you a message`,
     Body: ` Message:${message}`
@@ -136,6 +136,10 @@ function home_display() {
   home.style.display = 'block'
   shop.style.display = 'none'
   cart.style.display = 'none'
+  order_data.style.display = 'none'
+  check_out_btn.style.display='none'
+  document.querySelector('#items-title').style.display = 'none'
+  document.querySelector("#order-title").style.display = 'none'
   document.querySelector('.contact-form').style.display = 'none'
 
 }
