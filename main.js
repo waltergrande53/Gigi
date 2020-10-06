@@ -23,15 +23,15 @@ function submitForm(e) {
   //   Get input Values
   let name = document.querySelector(".name").value;
   let email = document.querySelector(".email").value;
-  let message = document.querySelector(".message");
-  message.innerHTML= order_data.innerText;
-  console.log(name, email, message);
-if($(name).val && $(email).val ===''){
-  alert('namee and email required')
-}
+  let message = document.querySelector(".message").value
   saveContactInfo(name, email, message);
   document.querySelector(".contact-form").reset();
-  sentEmail(name, email, text)
+   if(name.value=''){
+    alert('name required')
+    return;
+  }
+ 
+  sentEmail(name, email,message)
 }
 
 // Save infos to Firebase
@@ -50,10 +50,10 @@ function sentEmail(name, email, message){
     Host: "smtp.gmail.com",
     Username: "waltergrande53@gmail.com",
     Password: "soxopankraodwpas",
-    To: 'Gigishoppp88@gmail.com',
+    To: 'waltergrande53@gmail.com',
     From: `${email}`,
     Subject: `${name} sent you a message`,
-    Body: ` Message:${message} ${quantity} }`
+    Body: ` Message:${message}`
   }).then(
     message => alert('Your order has been placed')
   );
@@ -117,6 +117,7 @@ function selected_item(i){
  }
  
  function shop_display() {
+   let text = $('#order button').text('remove');
    shop.style.display = 'block'
    home.style.display = 'none'
    cart.style.display = 'none'
@@ -134,18 +135,18 @@ function selected_item(i){
    check_out_btn.style.display='none'
    document.querySelector('.contact-form').style.display='none'
  }
- function check_out() {
+ function check_out(message) {
    if (quantity === 0) {
      alert('empty')
      return;
    }
-   let text = $('#order button').text(',');
     order_data.style.display='none'
-   
+       text = $('#order button').text('');
+
     cart.style.display = 'block'
     home.style.display = 'none'
     shop.style.display = 'none'
     check_out_btn.style.display='none'
    document.querySelector('.contact-form').style.display = 'block'
-   message = document.querySelector(".message").innerHTML =order_data.innerText;
+   message = document.querySelector(".message").value =order_data.innerText;
  }
