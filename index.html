@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
 <link rel="manifest" href="image/site.webmanifest">
- 
-<title>Gigi's Shop</title>
+  <title>Gigi's Shop</title>
   <!-- HTML -->
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
@@ -46,7 +45,6 @@
       Gigi’s Shoppp
     </div>
     <div class="alert alert-danger" role="alert">
-      <h4 class="alert-heading">alert</h4>
       <p>You must be able to pick up at chatsworth to order .</p>
     </div>
     <div class="images">
@@ -55,10 +53,10 @@
       <img class='home_images' src="3.jpeg" alt="" />
     </div>
   </div>
-  <section id="shop-section">
-    <div id="shop">
-      <h1>Items Available</h1>
-    </div>
+  <section id="shop-section" style="display:none;">
+
+      <h1 id="items-title" >Items Available</h1>
+  
     <div class="container">
        <!-- Card deck -->
       <div class="card-deck row">
@@ -68,7 +66,7 @@
             <!--Card image-->
             <div class="view overlay">
               <img class="card-img-top" src="1.jpeg" alt="Card image cap">
-              <a href="#!">
+              <a href="#">
                 <div class="mask rgba-white-slight"></div>
               </a>
             </div>
@@ -78,9 +76,17 @@
               <h4 class="card-title">
                 Skittles</h4>
               <!--Text-->
-              <p class="card-text price"><strong>$5.00</strong></p>
+          <p class="card-text price">small:$5 medium:$8 big:$10</p>
+              <select class="size">
+                <option selected disabled
+                ="selected" value="0">Select size</option>
+                 <option value="5">5</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            
+              </select> <br />
               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(0)" >add to cart</button>
+              <button type="button" class="btn btn-success btn-light-blue btn-md " onclick="selected_item(0)" >add to cart</button>
             </div>
           </div>
         
@@ -101,9 +107,17 @@
               <!--Title-->
               <h4 class="card-title">Sour patch watermelon</h4>
               <!--Text-->
-              <p class="card-text price"><strong>$5.00</strong></p>
+              <p class="card-text price"><strong>small:$5 medium:$8 big:$10</strong></p>
+              <select class="size">
+                <option selected disabled
+                ="selected" value="0">Select size</option>
+                 <option value="5">5</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            
+              </select> <br />
               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(1)" >add to cart</button>
+              <button type="button" class="btn btn-success btn-light-blue btn-md " onclick="selected_item(1)" >add to cart</button>
             </div>
           </div>
           <!-- Card -->
@@ -124,10 +138,19 @@
               <h4 class="card-title">
                 Gummy bears</h4>
               <!--Text-->
-              <p class="card-text price"><strong>$5.00</strong></p>
+              <p class="card-text price"><strong>small:$5 medium:$8 big:$10
+              </strong></p>
+              <select class="size">
+                <option selected disabled
+                ="selected" value="0">Select size</option>
+                 <option value="5">5</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            
+              </select> <br />
 
               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(2)">add to cart</button>
+              <button type="button" class="btn btn-success btn-light-blue btn-md " onclick="selected_item(2)">add to cart</button>
             </div>
           </div>
           <!-- Card -->
@@ -148,9 +171,17 @@
               <h4 class="card-title">
                 Peaches</h4>
               <!--Text-->
-              <p class="card-text price"><strong>$5.00</strong></p>
+            <p class="card-text price"><strong>small:$5 medium:$8 big:$10</strong></p>
+              <select class="size">
+                <option selected disabled
+                ="selected" value="0">Select size</option>
+                 <option value="5">5</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            
+              </select> <br />
               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(3)">add to cart</button>
+              <button type="button" class="btn btn-success btn-light-blue btn-md " onclick="selected_item(3)">add to cart</button>
             </div>
           </div>
           <!-- Card -->
@@ -171,9 +202,17 @@
               <h4 class="card-title">
                 Sour patch kids</h4>
               <!--Text-->
-              <p class="card-text price"><strong>$5.00</strong></p>
+              <p class="card-text price"> <strong>small:$5 medium:$8 big:$10</strong></p>
+              <select class="size">
+                <option selected disabled
+                ="selected" value="0">Select size</option>
+                 <option value="5">5</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            
+              </select> <br />
               <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-              <button type="button" class="btn btn-light-blue btn-md" onclick="selected_item(4)">add to cart</button>
+              <button type="button" class="btn btn-success btn-light-blue btn-md " onclick="selected_item(4)">add to cart</button>
             </div>
           </div>
         </div>
@@ -183,7 +222,9 @@
     
      </div>
   </section>
+  <h4 id="order-title"> Your items</h4>
   <section id="order">
+
     <div id="total">
       
     </div>
@@ -212,6 +253,7 @@
       <button type="submit">Submit</button>
     </form>
      </section>
+    
   <script src="https://smtpjs.com/v3/smtp.js">
   </script>
 <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase.js"></script>
