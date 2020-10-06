@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: cursive;
+  font-family: 'Caveat',cursive;
 }
 #home{
   background-color:#09ED58;
@@ -12,6 +12,7 @@
   margin-top: 50px;
   width: 100%;
   padding: 4.5%;
+  background-size: cover;
  
 }
 
@@ -69,12 +70,13 @@
 }
 .contact-form{
   display: none;
+  height: 100vh;
+  margin-top:5%;
 }
 #order:nth-child(odd){
- width: 100%;
+ width: 50%;
 margin: auto;
 display: none;
-color:white;
 }
 .list_items{
   display: flex;
@@ -85,33 +87,25 @@ color:white;
   
 }
 .delete_btn{
- 
+ border:solid 2px red;
+ color:red;
   
 }
 #check_out_btn{
-  display: none;
+  border: solid 2px red;
+  width: 50%;
+  margin: auto;
+ background-color: #22C11C;
+ display:none;
 }
 #order{
 
     background-color: #09ED58;
-    top: 20px;
     color: red;
-    margin-top: 50px;
-    width: 100%;
-
-}
-.contact-form{
-    top: 20px;
-    background: white;
-    color: red;
+    width: 50%;
     margin: auto;
-    width: 100%;
-   text-align: center;
-   border: solid 3px black;
-   background-color: #09ED58;
-  
-}
 
+}
 #shop-section{
      background-color: #09ED58;
     top: 20px;
@@ -120,7 +114,31 @@ color:white;
     width: 100%;
 
 }
+#order-title{
+  display: none;
+  text-align: center;
+}
 .contact-form-section{
-  background-color: #09ED58;
+    display: none;
+   background-color:#09ED58;
+   top: 20px;
+   color: red;
+   margin-top: 50px;
+   width: 100%;
+   justify-items: center;
+   justify-content:center;
 
+}
+.message{
+  color: black;
+}
+#items-title{
+  text-align: center;
+  display: none;
+}
+.name{
+  width: 100%;
+}
+.email{
+  width: 100%;
 }
