@@ -1,194 +1,300 @@
-// Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyA6lHioeOKITgz_ECHcM26ZFpdceDze1QY",
-  authDomain: "test-form-f8400.firebaseapp.com",
-  databaseURL: "https://test-form-f8400.firebaseio.com",
-  projectId: "test-form-f8400",
-  storageBucket: "test-form-f8400.appspot.com",
-  messagingSenderId: "200590622876",
-  appId: "1:200590622876:web:863db80184c67dddaf2d59"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const cartBtn = document.querySelector(".cart-btn");
+const closeCartBtn = document.querySelector(".close-cart");
+const clearCartBtn = document.querySelector(".clear-cart");
+const cartDOM = document.querySelector(".cart");
+const cartOverlay = document.querySelector(".cart-overlay");
+const cartItems = document.querySelector(".cart-items");
+const cartTotal = document.querySelector(".cart-total");
+const cartContent = document.querySelector(".cart-content");
+const productsDOM = document.querySelector(".products-center");
+const barBtn = document.querySelector('.bar-btn')
+const barOverlay = document.querySelector('.bar-overlay')
+let barDom = document.querySelector('.bar');;
+let closeBar = document.querySelector('.close-nav');
+let sendMessage = document.querySelector('.send-message')
+let messageText = document.querySelector('#message-text');
+let messageName = document.querySelector('#recipient-name');
 
-// Refernece contactInfo collections
-let contactInfo = firebase.database().ref("infos");
+let cart = [];
 
-// Listen for a submit
-document.querySelector(".contact-form").addEventListener("submit", submitForm);
+// products
+class Products {
+  async getProducts() {
+    try {
+      let result = await fetch("products.json");
+      let data = await result.json();
+      // let contentful = await client.getEntries({
+      //   content_type: "comfyHouseProducts"
+      // });
+      // console.log(contentful.items);
+      // console.log(data);
 
-function submitForm(e) {
-  e.preventDefault();
+      let products = data.items;
+      products = products.map(item => {
+        const { title, price } = item.fields;
+        const { id } = item.sys;
+        const image = item.fields.image.fields.file.url;
+        return { title, price, id, image };
+      });
 
-  //   Get input Values
-  let name = document.querySelector(".name").value;
-  let email = document.querySelector(".email").value;
-  let message = document.querySelector(".message").value
-  saveContactInfo(name, email, message);
-
-  if (name, email == '') {
-    alert('name and email are required to book your order')
-    return;
-  }
-
-  document.querySelector(".contact-form").reset();
-  sentEmail(name, email, message)
-}
-
-// Save infos to Firebase
-function saveContactInfo(name, email, message) {
-  let newContactInfo = contactInfo.push();
-
-  newContactInfo.set({
-    name: name,
-    email: email,
-    message: message,
-  });
-}
-
-function sentEmail(name, email, message)
-{
-
-  Email.send({
-    Host: "smtp.gmail.com",
-    Username: "waltergrande53@gmail.com",
-    Password: "soxopankraodwpas",
-    To: 'gigishoppp88@gmail.com',
-    From: `${email}`,
-    Subject: `${name} sent you a message`,
-    Body: ` Message:${message}`
-  }).then(
-    message => alert('Your order has been placed')
-  );
-}
-
-
-
-
-
-let size = document.querySelector('.size').options[0].selected
-
-order_data = document.querySelector('#order');
-let items = ['Skittles', 'Sour patch watermelon', 'Gummy bears', 'Peaches', 'Sour patch kids'];
-let total = 0;
-let size_display;
-let total_amount = document.querySelector("#total")
-let quantity = 0;
-let home = document.getElementById('home');
-let shop = document.querySelector('.container');
-let cart = document.querySelector('#cart')
-let check_out_btn = document.querySelector('#check_out_btn');
-let div = document.createElement('div');
-
-
-
-$(document).ready(function() {
-  $(".size").change(function() {
-    selectedSize = $(this).children("option:selected").val();
-    if (selectedSize == null) {
-      return;
+      return products;
+    } catch (error) {
+      console.log(error);
     }
-    selected_price = parseFloat(selectedSize)
-
-  });
-  return selectedSize = null;
-})
-
-function selected_item(i) {
-  quantity = 1;
-  total += selected_price;
-
-  if (selected_price === 5) {
-    size_display = 'Small'
   }
-  else if (selected_price === 8) {
-    size_display = 'Medium'
-
-  }
-  else if (selected_price === 10) {
-    size_display = 'big'
-  }
-  check_out_btn.style.display = 'block'
-  let div = document.createElement('div');
-  div.className = 'list_items'
-  let delete_btn = document.createElement("button");
-  delete_btn.className = 'delete_btn'
-  order_data.appendChild(div).innerHTML = `${items[i]} ${size_display} ${quantity} `;
-  total_amount.innerHTML = `total: $${total} `;
-  div.appendChild(delete_btn).innerHTML = 'remove';
-  delete_btn.addEventListener('click', () => {
-    total -= selected_price;
-    order_data.removeChild(div)
-    div.removeChild(delete_btn)
-    total_amount.innerHTML = `total: $${total} `;
-    if (total === 0) {
-      check_out_btn.style.display = 'none'
-    }
-  })
-};
-
-
-
-
-
-
-function home_display() {
-  home.style.display = 'block'
-  shop.style.display = 'none'
-  cart.style.display = 'none'
-  order_data.style.display = 'none'
-  check_out_btn.style.display='none'
-  document.querySelector('#items-title').style.display = 'none'
-  document.querySelector("#order-title").style.display = 'none'
-  document.querySelector('.contact-form').style.display = 'none'
-
 }
 
-function shop_display() {
-  let text = $('#order button').text('remove');
-  shop.style.display = 'block'
-  home.style.display = 'none'
-  cart.style.display = 'none'
-  $('#shop-section').css('display', 'block')
-  document.querySelector('#items-title').style.display = 'block'
-  document.querySelector("#order-title").style.display = 'block'
-  order_data.style.display = 'none'
-  order_data.style.display = 'block'
-  document.querySelector('.contact-form').style.display = 'none'
-
-}
-
-function cart_display() {
-  cart.style.display = 'block'
-  order_data.display = 'none'
-  home.style.display = 'none'
-  shop.style.display = 'none'
-  $('#shop-section').css('display', 'none')
-  $('#items-litle').css('display', 'none')
-  if (total > 0) {
-    check_out_btn.style.display = 'block'
-  } else {
-    check_out_btn.style.display = 'none'
+// ui
+class UI {
+  displayProducts(products) {
+    let result = "";
+    products.forEach(product => {
+      result += `
+   
+        <article class="product">
+          <div class="img-container">
+            <img
+              src=${product.image}
+              alt="product"
+              class="product-img"
+            />
+            <button class="bag-btn" data-id=${product.id}>
+              <i class="fas fa-shopping-cart"></i>
+              add to bag
+            </button>
+          </div>
+          <h3>${product.title}</h3>
+          <h4>Price: $${product.price}</h4>
+        </article>
+        
+   `;
+    });
+    productsDOM.innerHTML = result;
   }
-  document.querySelector('.contact-form').style.display = 'none'
-}
+  getBagButtons() {
+    const buttons = [...document.querySelectorAll(".bag-btn")];
+    buttons.forEach(button => {
+      let id = button.dataset.id;
 
-function check_out(message) {
-  if (quantity === 0) {
-    alert('empty')
-    return;
+      let inCart = cart.find(item => item.id === id);
+      if (inCart) {
+        button.innerText = "In Bag";
+        button.disabled = true;
+      } else {
+        button.addEventListener("click", event => {
+         event.target.disabled = true;
+
+          // disable button
+          event.target.innerText = "in bag";
+          // add to cart
+          let cartItem = { ...Storage.getProduct(id), amount: 1 };
+          cart = [...cart, cartItem];
+          Storage.saveCart(cart);
+          // add to DOM
+          this.setCartValues(cart);
+          this.addCartItem(cartItem);
+          this.showCart();
+        });
+      }
+    });
   }
-  order_data.style.display = 'none'
-  text = $('#order button').text('');
-  document.querySelector('#order-title').style.display = 'none'
+  setCartValues(cart) {
+    let tempTotal = 0;
+    let itemsTotal = 0;
+    cart.map(item => {
+      tempTotal += item.price * item.amount;
+      itemsTotal += item.amount;
+    });
+    cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+    cartItems.innerText = itemsTotal;
+  }
 
-  cart.style.display = 'block'
-  home.style.display = 'none'
-  $('.contact-form-section').css('display', 'flex')
-  shop.style.display = 'none'
-  check_out_btn.style.display = 'none'
-  $('#shop-section').css('display', 'none')
-  $('#items-litle').css('display', 'none')
-  document.querySelector('.contact-form').style.display = 'block'
-  message = document.querySelector(".message").value = order_data.innerText;
+  addCartItem(item) {
+    const div = document.createElement("div");
+    div.classList.add("cart-item");
+    div.innerHTML = `
+
+            <img src=${item.image} alt="product" />
+            <!-- item info -->
+            <div>
+              <h4>${item.title}</h4>
+              <h5>$${item.price}</h5>
+              <span class="remove-item" data-id=${item.id}>remove</span>
+            </div>
+            <!-- item functionality -->
+            <div>
+                <i class="fas fa-chevron-up" data-id=${item.id}></i>
+              <p class="item-amount">
+                ${item.amount}
+              </p>
+                <i class="fas fa-chevron-down" data-id=${item.id}></i>
+            </div>
+     
+    `;
+    cartContent.appendChild(div);
+  }
+  showCart() {
+    cartOverlay.classList.add("transparentBcg");
+    cartDOM.classList.add("showCart");
+  }
+  showbar() {
+    barOverlay.classList.add('transparentBcg')
+    barDom.classList.add('showBar')
+  }
+  setupAPP() {
+    cart = Storage.getCart();
+    this.setCartValues(cart);
+    this.populateCart(cart);
+    cartBtn.addEventListener("click", this.showCart);
+    closeCartBtn.addEventListener("click", this.hideCart);
+    barBtn.addEventListener('click', this.showbar)
+    closeBar.addEventListener('click', this.hideBar)
+
+
+  }
+  populateCart(cart) {
+    cart.forEach(item => this.addCartItem(item));
+  }
+  hideCart() {
+    cartOverlay.classList.remove("transparentBcg");
+    cartDOM.classList.remove("showCart");
+  }
+  hideBar() {
+    barOverlay.classList.remove('transparentBcg')
+    barDom.classList.remove('showBar')
+  }
+  cartLogic() {
+    clearCartBtn.addEventListener("click", () => {
+      this.clearCart();
+    });
+    cartContent.addEventListener("click", event => {
+      if (event.target.classList.contains("remove-item")) {
+        let removeItem = event.target;
+        let id = removeItem.dataset.id;
+        cart = cart.filter(item => item.id !== id);
+        this.setCartValues(cart);
+        Storage.saveCart(cart);
+        cartContent.removeChild(removeItem.parentElement.parentElement);
+        const buttons = [...document.querySelectorAll(".bag-btn")];
+        buttons.forEach(button => {
+          if (parseInt(button.dataset.id) !== id) {
+            button.disabled = false;
+            button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+          }
+        });
+      } else if (event.target.classList.contains("fa-chevron-up")) {
+        let addAmount = event.target;
+        let id = addAmount.dataset.id;
+        let tempItem = cart.find(item => item.id === id);
+        tempItem.amount = tempItem.amount + 1;
+        Storage.saveCart(cart);
+        this.setCartValues(cart);
+        addAmount.nextElementSibling.innerText = tempItem.amount;
+      } else if (event.target.classList.contains("fa-chevron-down")) {
+        let lowerAmount = event.target;
+        let id = lowerAmount.dataset.id;
+        let tempItem = cart.find(item => item.id === id);
+        tempItem.amount = tempItem.amount - 1;
+        if (tempItem.amount > 0) {
+          Storage.saveCart(cart);
+          this.setCartValues(cart);
+          lowerAmount.previousElementSibling.innerText = tempItem.amount;
+        } else {
+          cart = cart.filter(item => item.id !== id);
+          // console.log(cart);
+
+
+          this.setCartValues(cart);
+          Storage.saveCart(cart);
+          cartContent.removeChild(lowerAmount.parentElement.parentElement);
+          const buttons = [...document.querySelectorAll(".bag-btn")];
+ 
+          buttons.forEach(button => {
+          if (parseInt(button.dataset.id) !== id) {
+              button.disabled = false;
+              button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+            }
+          });
+        }
+      }
+    });
+  }
+  clearCart(item) {
+    this.setCartValues(cart);
+    Storage.saveCart(cart);
+     $('#exampleModal').on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      //var name = button.data('name')
+      // Extract info from data-* attributes
+      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+      console.log(name)
+      var modal = $(this)
+      modal.find('.modal-title').text('Place New order');
+     let orderText = ''
+   
+
+      cart.map(item => {
+        let tempTotal = 0;
+        let itemsTotal = 0;
+        let total =''
+        let li = document.createElement('li')
+         li.innerHTML += `${item.title}(${item.amount}), `;
+        orderText += li.innerHTML;
+        tempTotal += item.price * item.amount;
+        itemsTotal += item.amount;
+       total = parseFloat(tempTotal.toFixed(2));
+    
+        messageName = modal.find('#message-text').val(orderText+ 'Total:' + $('.cart-total').text())
+      })
+      sendMessage.addEventListener('click', () => {
+        $('#message-text').val()
+
+      })
+    })
+    /* const buttons = [...document.querySelectorAll(".bag-btn")];
+     buttons.forEach(button => {
+       button.disabled = false;
+       button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+     });
+     while (cartContent.children.length > 0) {
+       cartContent.removeChild(cartContent.children[0]);
+     }
+     this.hideCart();*/
+  }
 }
+
+class Storage {
+  static saveProducts(products) {
+    localStorage.setItem("products", JSON.stringify(products));
+  }
+  static getProduct(id) {
+    let products = JSON.parse(localStorage.getItem("products"));
+    return products.find(product => product.id === id);
+  }
+  static saveCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+  static getCart() {
+    return localStorage.getItem("cart") ?
+      JSON.parse(localStorage.getItem("cart")) : [];
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const ui = new UI();
+  const products = new Products();
+  ui.setupAPP();
+
+  // get all products
+  products
+    .getProducts()
+    .then(products => {
+      ui.displayProducts(products);
+      Storage.saveProducts(products);
+    })
+    .then(() => {
+      ui.getBagButtons();
+      ui.cartLogic();
+    });
+});
