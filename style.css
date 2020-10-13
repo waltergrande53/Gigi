@@ -18,7 +18,7 @@ body {
   font-family: "Caveat", cursive;
 }
 /* --------------- Navbar ---------------- */
-.navbar1{
+.navbar-main{
   background: var(--mainWhite);
   position: sticky;
   top: 0;
@@ -56,8 +56,19 @@ body {
    font-size: 1.7rem;
   cursor: pointer;
 }
+
+.bar-info{
+ text-align: center;
+}
+.medias{
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: center;
+  justify-self: center;
+}
+
 .bar-overlay {
-  position: fixed;
+  position:absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -69,8 +80,9 @@ body {
   visibility: hidden;
 }
 .showBar {
-  transform: translateX(0%);
+  transform: translateX(-00%);
 }
+
 
 .nav-icon {
   font-size: 1.5rem;
