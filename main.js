@@ -1,3 +1,5 @@
+
+
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
@@ -23,12 +25,6 @@ class Products {
     try {
       let result = await fetch("products.json");
       let data = await result.json();
-      // let contentful = await client.getEntries({
-      //   content_type: "comfyHouseProducts"
-      // });
-      // console.log(contentful.items);
-      // console.log(data);
-
       let products = data.items;
       products = products.map(item => {
         const { title, price } = item.fields;
@@ -219,16 +215,15 @@ class UI {
       }
     });
   }
-  clearCart(item) {
+  clearCart() {
     this.setCartValues(cart);
     Storage.saveCart(cart);
-     $('#exampleModal').on('show.bs.modal', function(event) {
+     $('#Modal').on('show.bs.modal', function(event) {
       var button = $(event.relatedTarget) // Button that triggered the modal
       //var name = button.data('name')
       // Extract info from data-* attributes
       // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
       // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-      console.log(name)
       var modal = $(this)
       modal.find('.modal-title').text('Place New order');
      let orderText = ''
@@ -245,24 +240,27 @@ class UI {
         itemsTotal += item.amount;
        total = parseFloat(tempTotal.toFixed(2));
     
-        messageName = modal.find('#message-text').val(orderText+ 'Total:' + $('.cart-total').text())
+        messageName = modal.find('#message-text').val(orderText+ 'Total:$' + $('.cart-total').text())
       })
-      sendMessage.addEventListener('click', () => {
-        $('#message-text').val()
-
+      sendMessage.addEventListener('click',function sentEmail() {
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "waltergrande53@gmail.com",
+          Password: "soxopankraodwpas",
+          To: '@gigishoppp88@gmail.com',
+          From: `${$('#recipient-name').val()}`,
+          Subject: `new`,
+          Body: ` Message:${$('#message-text').val()}`
+        }).then(alert('sent')
+        );
       })
+    
     })
-    /* const buttons = [...document.querySelectorAll(".bag-btn")];
-     buttons.forEach(button => {
-       button.disabled = false;
-       button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
-     });
-     while (cartContent.children.length > 0) {
-       cartContent.removeChild(cartContent.children[0]);
-     }
-     this.hideCart();*/
   }
 }
+
+
+//sendMessage.addEventListener('submit',sendEmail())
 
 class Storage {
   static saveProducts(products) {
