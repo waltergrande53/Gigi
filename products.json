@@ -37,7 +37,7 @@
       "fields": {
         "title": "Sour patch kids",
         "price": 5.00,
-        "image": { "fields": { "file": { "url": "./images/product-5.jpeg" } } }
+        "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
       }
     }
   ]
