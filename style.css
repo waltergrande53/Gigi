@@ -41,7 +41,7 @@ body {
   background: rgb(231, 226, 221);
   padding: 1.5rem;
   transition: var(--mainTransition);
-  transform: translateX(100%);
+  transform: translateX(-100%);
 }
 .navbar-center1 {
   width: 100%;
@@ -109,7 +109,9 @@ a{
 /* --------------- Hero ---------------- */
 .hero {
   min-height: calc(100vh - 60px);
-  background: green center/cover no-repeat;
+ /* background: green center/cover no-repeat;*/
+ background-color: #00b712;
+ background-image: linear-gradient(315deg, #00b712 0%, #5aff15 74%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -262,7 +264,7 @@ a{
   margin: 0 auto;
   max-width: 1170px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
 }
@@ -315,5 +317,8 @@ a{
   margin-top: 0.7rem;
   letter-spacing: var(--mainSpacing);
   color: var(--primaryColor);
+  text-align: center;
+}
+.alert{
   text-align: center;
 }
