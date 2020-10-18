@@ -234,7 +234,7 @@ class UI {
         let itemsTotal = 0;
         let total =''
         let li = document.createElement('li')
-         li.innerHTML += `${item.title}(${item.amount}), `;
+         li.innerHTML += `${item.title},${item.size} (${item.amount}), `;
         orderText += li.innerHTML;
         tempTotal += item.price * item.amount;
         itemsTotal += item.amount;
@@ -251,8 +251,8 @@ class UI {
           From: `${$('#recipient-name').val()}`,
           Subject: `new`,
           Body: ` Message:${$('#message-text').val()}`
-        }).then(alert('sent')
-        );
+        }).then(alert('order placed')
+        ).then($('#modal').modal('hide'))
       })
     
     })
@@ -280,7 +280,6 @@ class Storage {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  $(".alert").alert("Chatswoth, CA deliver only")
   const ui = new UI();
   const products = new Products();
   ui.setupAPP();
