@@ -291,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ui.displayProducts(products);
       Storage.saveProducts(products);
     })
-    .then(() => {
+    .then(() => { 
       ui.getBagButtons();
       ui.cartLogic();
     });
