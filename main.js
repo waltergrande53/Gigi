@@ -27,10 +27,10 @@ class Products {
       let data = await result.json();
       let products = data.items;
       products = products.map(item => {
-        const { title, price } = item.fields;
+        const { title, size,price } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, price, id, image };
+        return { title, size, price, id, image };
       });
 
       return products;
@@ -59,7 +59,7 @@ class UI {
               add to bag
             </button>
           </div>
-          <h3>${product.title}</h3>
+          <h3>${product.title} (${product.size})</h3>
           <h4>Price: $${product.price}</h4>
         </article>
         
@@ -113,7 +113,7 @@ class UI {
             <img src=${item.image} alt="product" />
             <!-- item info -->
             <div>
-              <h4>${item.title}</h4>
+              <h4>${item.title} (${item.size})</h4>
               <h5>$${item.price}</h5>
               <span class="remove-item" data-id=${item.id}>remove</span>
             </div>
@@ -280,6 +280,7 @@ class Storage {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  $(".alert").alert("Chatswoth, CA deliver only")
   const ui = new UI();
   const products = new Products();
   ui.setupAPP();
@@ -291,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ui.displayProducts(products);
       Storage.saveProducts(products);
     })
-    .then(() => { 
+    .then(() => {
       ui.getBagButtons();
       ui.cartLogic();
     });
