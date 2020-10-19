@@ -80,7 +80,7 @@ body {
   visibility: hidden;
 }
 .showBar {
-  transform: translateX(-00%);
+  transform: translateX(0%);
 }
 
 
