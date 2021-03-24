@@ -245,7 +245,7 @@ class UI {
           Host: "smtp.gmail.com",
           Username: "waltergrande53@gmail.com",
           Password: "soxopankraodwpas",
-          To: '@gigishoppp88@gmail.com',
+          To: 'gigishoppp88@gmail.com',
           From: `${$('#recipient-name').val()}`,
           Subject: `new`,
           Body: ` Message:${$('#message-text').val()}`
