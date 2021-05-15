@@ -250,7 +250,7 @@ class UI {
           Subject: `new`,
           Body: ` Message:${$('#message-text').val()}`
         }).then(alert('order placed')
-        ).then($('#modal').modal('hide'))
+        ).then($('#Modal').modal('hide'))
       })
     
     })
