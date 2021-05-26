@@ -133,11 +133,17 @@ a{
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   font-size: 1rem;
+ 
   background: var(--primaryColor);
   color: var(--mainBlack);
   border: 1px solid var(--primaryColor);
   transition: var(--mainTransition);
   cursor: pointer;
+}
+.banner-btn a{
+  
+  text-decoration: none;
+  color:white;
 }
 .banner-btn:hover {
   background: transparent;
@@ -321,4 +327,8 @@ a{
 }
 .alert{
   text-align: center;
+}
+
+.fa-map-marker{
+  color:red;
 }
