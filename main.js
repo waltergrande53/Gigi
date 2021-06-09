@@ -1,35 +1,40 @@
+
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
-const clearCartBtn = document.querySelector(".clear-cart");
+const checkoutBtn = document.querySelector(".checkout-cart");
 const cartDOM = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
 const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
-const barBtn = document.querySelector('.bar-btn')
-const barOverlay = document.querySelector('.bar-overlay')
-let barDom = document.querySelector('.bar');;
-let closeBar = document.querySelector('.close-nav');
-let sendMessage = document.querySelector('.send-message')
-let messageText = document.querySelector('#message-text');
-let messageName = document.querySelector('#recipient-name');
-
 let cart = [];
-
+let itemstext = document.querySelector('#items-text')
+const alertBtn= document.querySelector('.alert-btn')
+const alertShow= document.querySelector('.alert')
+const alertOverlay= document.querySelector('.alert-overlay')
+const closeAlert=document.querySelector('.close-alert')
+let delivery=document.querySelector('.delivery')
 // products
 class Products {
   async getProducts() {
     try {
       let result = await fetch("products.json");
       let data = await result.json();
+      // let contentful = await client.getEntries({
+      //   content_type: "comfyHouseProducts"
+      // });
+      // console.log(contentful.items);
+      // console.log(data);
+
       let products = data.items;
       products = products.map(item => {
-        const { title, size,price } = item.fields;
+        const { title,size, price } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, size, price, id, image };
+        return { title,size, price, id, image };
       });
+      console.log(products);
 
       return products;
     } catch (error) {
@@ -44,7 +49,7 @@ class UI {
     let result = "";
     products.forEach(product => {
       result += `
-   
+   <!-- single product -->
         <article class="product">
           <div class="img-container">
             <img
@@ -54,13 +59,13 @@ class UI {
             />
             <button class="bag-btn" data-id=${product.id}>
               <i class="fas fa-shopping-cart"></i>
-              add to bag
+              add to cart
             </button>
           </div>
-          <h3>${product.title} (${product.size})</h3>
-          <h4>Price: $${product.price}</h4>
+          <h3>${product.title} ${product.size}</h3>
+          <h4>$${product.price}</h4>
         </article>
-        
+        <!-- end of single product -->
    `;
     });
     productsDOM.innerHTML = result;
@@ -72,17 +77,17 @@ class UI {
 
       let inCart = cart.find(item => item.id === id);
       if (inCart) {
-        button.innerText = "In Bag";
+        button.innerText = "In Cart";
         button.disabled = true;
       } else {
         button.addEventListener("click", event => {
-         event.target.disabled = true;
-
           // disable button
-          event.target.innerText = "in bag";
+          event.target.innerText = "In Cart";
+          event.target.disabled = true;
           // add to cart
           let cartItem = { ...Storage.getProduct(id), amount: 1 };
           cart = [...cart, cartItem];
+          
           Storage.saveCart(cart);
           // add to DOM
           this.setCartValues(cart);
@@ -106,12 +111,12 @@ class UI {
   addCartItem(item) {
     const div = document.createElement("div");
     div.classList.add("cart-item");
-    div.innerHTML = `
-
+    div.innerHTML = `<!-- cart item -->
+            <!-- item image -->
             <img src=${item.image} alt="product" />
             <!-- item info -->
             <div>
-              <h4>${item.title} (${item.size})</h4>
+              <h4>${item.title} ${item.size}</h4>
               <h5>$${item.price}</h5>
               <span class="remove-item" data-id=${item.id}>remove</span>
             </div>
@@ -122,8 +127,9 @@ class UI {
                 ${item.amount}
               </p>
                 <i class="fas fa-chevron-down" data-id=${item.id}></i>
+              
             </div>
-     
+          <!-- cart item -->
     `;
     cartContent.appendChild(div);
   }
@@ -131,47 +137,47 @@ class UI {
     cartOverlay.classList.add("transparentBcg");
     cartDOM.classList.add("showCart");
   }
-  showbar() {
-    barOverlay.classList.add('transparentBcg')
-    barDom.classList.add('showBar')
+  showAlert(){
+  alertOverlay.classList.add('transparentBcg');
+  alertShow.classList.add("showAlert")
   }
   setupAPP() {
     cart = Storage.getCart();
     this.setCartValues(cart);
     this.populateCart(cart);
     cartBtn.addEventListener("click", this.showCart);
+    closeAlert.addEventListener('click',this.hideAlert)
+    alertBtn.addEventListener("click",this.showAlert)
     closeCartBtn.addEventListener("click", this.hideCart);
-    barBtn.addEventListener('click', this.showbar)
-    closeBar.addEventListener('click', this.hideBar)
-
-
   }
   populateCart(cart) {
     cart.forEach(item => this.addCartItem(item));
+  }
+  hideAlert(){
+    alertOverlay.classList.remove('transparentBcg');
+    alertShow.classList.remove('showAlert')
   }
   hideCart() {
     cartOverlay.classList.remove("transparentBcg");
     cartDOM.classList.remove("showCart");
   }
-  hideBar() {
-    barOverlay.classList.remove('transparentBcg')
-    barDom.classList.remove('showBar')
-  }
   cartLogic() {
-    clearCartBtn.addEventListener("click", () => {
-      this.clearCart();
+    checkoutBtn.addEventListener("click", () => {
+      this.checkOut();
     });
     cartContent.addEventListener("click", event => {
       if (event.target.classList.contains("remove-item")) {
         let removeItem = event.target;
         let id = removeItem.dataset.id;
         cart = cart.filter(item => item.id !== id);
+        console.log(cart);
+
         this.setCartValues(cart);
         Storage.saveCart(cart);
         cartContent.removeChild(removeItem.parentElement.parentElement);
         const buttons = [...document.querySelectorAll(".bag-btn")];
         buttons.forEach(button => {
-          if (parseInt(button.dataset.id) !== id) {
+          if (parseInt(button.dataset.id) === id) {
             button.disabled = false;
             button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
           }
@@ -197,14 +203,12 @@ class UI {
           cart = cart.filter(item => item.id !== id);
           // console.log(cart);
 
-
           this.setCartValues(cart);
           Storage.saveCart(cart);
           cartContent.removeChild(lowerAmount.parentElement.parentElement);
           const buttons = [...document.querySelectorAll(".bag-btn")];
- 
           buttons.forEach(button => {
-          if (parseInt(button.dataset.id) !== id) {
+            if (parseInt(button.dataset.id) === id) {
               button.disabled = false;
               button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
             }
@@ -213,52 +217,37 @@ class UI {
       }
     });
   }
-  clearCart() {
+  checkOut() {
+    // console.log(this);
+    
+    let order=''
+  cart.map(items =>{
+   console.log(items)
+    let list = document.createElement('li')
+   
+    list.innerHTML += `${items.title},${items.size}
+     (${items.amount}), `;
+     order += list.innerHTML;
+    
+    itemstext.value=order, `${delivery.value }`;
+  })
+    
+  cart=[]
+  
+    //console.log(cart.title);
     this.setCartValues(cart);
     Storage.saveCart(cart);
-     $('#Modal').on('show.bs.modal', function(event) {
-      var button = $(event.relatedTarget) // Button that triggered the modal
-      //var name = button.data('name')
-      // Extract info from data-* attributes
-      // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-      // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-      var modal = $(this)
-      modal.find('.modal-title').text('Place New order');
-     let orderText = ''
-   
-
-      cart.map(item => {
-        let tempTotal = 0;
-        let itemsTotal = 0;
-        let total =''
-        let li = document.createElement('li')
-         li.innerHTML += `${item.title},${item.size} (${item.amount}), `;
-        orderText += li.innerHTML;
-        tempTotal += item.price * item.amount;
-        itemsTotal += item.amount;
-       total = parseFloat(tempTotal.toFixed(2));
-    
-        messageName = modal.find('#message-text').val(orderText+ 'Total:$' + $('.cart-total').text())
-      })
-      sendMessage.addEventListener('click',function sentEmail() {
-        Email.send({
-          Host: "smtp.gmail.com",
-          Username: "waltergrande53@gmail.com",
-          Password: "soxopankraodwpas",
-          To: 'gigishoppp88@gmail.com',
-          From: `${$('#recipient-name').val()}`,
-          Subject: `new`,
-          Body: ` Message:${$('#message-text').val()}`
-        }).then(alert('order placed')
-        ).then($('#Modal').modal('hide'))
-      })
-    
-    })
+    const buttons = [...document.querySelectorAll(".bag-btn")];
+    buttons.forEach(button => {
+      button.disabled = false;
+      button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to Cart`;
+    });
+    while (cartContent.children.length > 0) {
+      cartContent.removeChild(cartContent.children[0]);
+    }
+    this.hideCart();
   }
 }
-
-
-//sendMessage.addEventListener('submit',sendEmail())
 
 class Storage {
   static saveProducts(products) {
@@ -272,8 +261,9 @@ class Storage {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
   static getCart() {
-    return localStorage.getItem("cart") ?
-      JSON.parse(localStorage.getItem("cart")) : [];
+    return localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
   }
 }
 

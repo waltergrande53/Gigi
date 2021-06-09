@@ -29,10 +29,10 @@
   <!-- navbar -->
   <nav class="navbar-main ">
     <div class="navbar-center1">
-      <span class="nav-icon ">
-        <i class="fas fa-bars bar-btn"></i>
-      </span>
-      <h2 style="color: red; font-weight:bold;" >Gigi's Shoppp</h2>
+      <button class="btn btn-danger    btn-rounded alert-btn">
+        <i class="fas fa-exclamation fa-2x" style="color:rgb(0, 0, 0); cursor:pointer;"></i>
+      </button>
+      <h2 style="color: red; font-weight:bold;" >Gigi's Shoppp <img style="object-fit: contain;" src="logos/GigiShoppp.png" alt="" width="50px"></h2>
       <div class="cart-btn">
         <span class="nav-icon">
           <i class="fas fa-cart-plus"></i>
@@ -46,12 +46,12 @@
   <header class="hero">
     <div class="banner">
       <h1 class="banner-title" >Gigi's Shoppp</h1>
-      <button class="banner-btn btn btn-success btn-lg"><a href="#products">Shop Now</a></button>
+      <button class="banner-btn btn btn-success btn-lg"><a href="#products" style="color:black;">Shop Now</a></button>
     </div>
   </header>
   <!-- end of hero -->
   <!-- products -->
-  <section class="products">
+  <section class="products" style="padding-bottom: 10rem;">
     <div class="section-title">
       <h2 id="products">our products</h2>
     </div>
@@ -82,70 +82,71 @@
       <span class="close-cart"><i class="far fa-window-close"></i></span>
       <h2>your cart</h2>
       <div class="cart-content">
+        
+      </div>
+      <div class="deliver">
+        Deliver Or Pick up
+        <select class="delivery"> 
+      <option value="Pick up"></option>
+      <option value="Deliver">Deliver</option>
+      <option value="Pick up">Pick up</option>
+      </select>
       </div>
       <div class="cart-footer">
         <h3>your total : $<span class="cart-total">0</span></h3>
-        <button type="button" class="btn btn-primary clear-cart banner-btn" data-toggle="modal" data-target="#Modal" data-id="name">Check Out</button>
+        <button  class="btn btn-primary checkout-cart banner-btn" type="button"
+        data-mdb-toggle="modal"
+        data-mdb-target="#checkout"
+        data-mdb-whatever="items">Check Out</button>
       </div>
     </div>
   </div>
-  <div class="bar-overlay">
-    <div class="bar">
-      <span class="close-nav"><i class="far fa-window-close"></i></span>
+  <div class="alert-overlay">
+    <div class="alert">
+      <span class="close-alert"><i class="far fa-window-close"></i></span>
       <div class="bar-info">
-        <h3><b>DM</b> for more information </h2>
-          <span style="font-size: 25px"> <strong> gigishoppp88@gmail.com
-            </strong>
-          </span>
-          <h4>You can find us in</h4>
-          <div class="medias">
-            <span><a href="https://instagram.com/gigis_shoppp?igshid=qt22fg2wnwmx"><i class="fab fa-instagram" > instagram</i> </a></span>
-            <span>
-              <a href="https://m.facebook.com/gigis_shoppp-102649194937712/?tsid=0.004187851954637667&source=result"> <i class="fab fa-facebook"> Facebook</i> </a></span>
-           
-            <span>
-              <a href="https://vm.tiktok.com/ZMJPcPKnm/"> <i class="fab fa-tiktok"> Tik tok</i> </a></span>
-       
-          </div>
-      </div>
-      <div class="alert alert-danger" role="alert">
+         <div class="alert-danger" >
         Chatsworth, CA deliver and pick up only.
       </div>
     </div>
     
     </div>
   </div>
-  <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form class="contact-form">
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">email</label>
-              <input type="email" placeholder="example123@gmail.com" class="form-control" id="recipient-name">
-            </div>
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Order Items:</label>
-              <textarea class="form-control" id="message-text" disabled></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary send-message">Send message</button>
-        </div>
+  <div
+  class="modal fade"
+  id="checkout"
+  tabindex="-1"
+  aria-labelledby="ModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <h5 class="modal-title" id="checkoutModalLabel"></h5>
+  
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Email</label>
+            <input type="email" placeholder="email" class="form-control" id="recipient-email" />
+          </div>
+          <div class="mb-3">
+            <label for="items-text" class="col-form-label">Items</label>
+            <textarea class="  form-control" id="items-text" disabled=true></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Send order</button>
       </div>
     </div>
   </div>
-
-
-
+</div>
 
   <main>
 
@@ -176,7 +177,7 @@
 
                     <!--Grid column-->
                     <div class="col-md-8 col-xl-9">
-                      <form name='contact' method="POST" netlify>
+                      <form name='contact' method="POST" action="success.html" data-netlify="true" class="form"  >
 
                         <!--Grid row-->
                         <div class="row">
@@ -185,7 +186,7 @@
                           <div class="col-md-6">
                             <div class="md-form">
                               <label for="contact-name" class="">Your name</label>
-                              <input type="text" id="contact-name" name='name' class="form-control">
+                              <input type="text" required id="contact-name" name='name' class="form-control">
                             
                             </div>
                           </div>
@@ -195,7 +196,7 @@
                           <div class="col-md-6">
                             <div class="md-form">
                               <label for="contact-email" class="" name='email'>Your email</label>
-                              <input type="text" id="contact-email" class="form-control">
+                              <input type="email" required id="contact-email" class="form-control">
                             
                             </div>
                           </div>
@@ -208,8 +209,8 @@
                         <div class="row">
                           <div class="col-md-12">
                             <div class="md-form">
-                              <label for="contact-Subject" class="">Subject</label>
-                              <input type="text" id="contact-Subject" class="form-control">
+                              <label for="contact-Subject">Subject</label>
+                              <input type="text" required  name='Subject' id="contact-Subject" class="form-control">
                            
                             </div>
                           </div>
@@ -224,22 +225,22 @@
 
                             <div class="md-form">
                               <label for="contact-message" >Your message</label>
-                              <textarea type="text" name='massage' id="contact-message" class="md-textarea form-control" rows="3"></textarea>
+                              <textarea type="text" required name='massage' id="contact-message" class="md-textarea form-control" rows="3"></textarea>
                               
                             </div>
 
                           </div>
                         </div>
                         <!--Grid row-->
-
+                        <div class="text-center text-md-left my-4">
+                          <button class="btn btn-primary submitBtn " type="submit" >Send</button>
+                        </div>
                       </form>
-
-                      <div class="text-center text-md-left my-4">
-                        <button class="btn peach-gradient" type="submit">Send</button>
-                      </div>
+                  
+                      
                     </div>
                     <!--Grid column-->
-
+                    
                     <!--Grid column-->
                     <div class="col-md-4 col-xl-3">
                       <ul class="contact-icons text-center list-unstyled">
@@ -249,7 +250,7 @@
                         </li>
 
                         <li>
-                          <i class="fas fa-envelope fa-2x orange-text"></i>
+                          <i class="fas fa-envelope fa-2x "></i>
                           <p>gigishoppp88@gmail.com</p>
                         </li>
                       </ul>
@@ -275,6 +276,31 @@
     </div>
 
   </main>
+
+  <footer class="page-footer pt-4 mt-4   grey lighten-3 text-center text-md-left">
+
+    <!--Copyright-->
+    <div class="footer-copyright text-center py-3 wow fadeIn" data-wow-delay="0.3s">
+      <div class="container-fluid">
+      <!-- Facebook -->
+<a class="btn btn-primary" style="background-color: #3b5998;" href="https://m.facebook.com/gigis_shoppp-102649194937712/?tsid=0.004187851954637667&source=result" role="button" target="_blank"
+><i class="fab fa-facebook-f"></i
+></a>
+
+
+<!-- Instagram -->
+<a class="btn btn-primary" style="background-color: #ac2bac;" href="https://instagram.com/gigis_shoppp?igshid=qt22fg2wnwmx" role="button" target="_blank"
+><i class="fab fa-instagram"></i
+></a> 
+<a class="btn btn-primary" style="background-color: black" href="https://vm.tiktok.com/ZMJPcPKnm/" role="button" target="_blank"
+><i class="fab fa-tiktok"></i
+></a> 
+
+      </div>
+    </div>
+    <!--/Copyright-->
+
+  </footer>
   <!-- end of cart -->
   <!-- email -->
   <!-- #MDB js -->
@@ -283,6 +309,7 @@
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <!--  javascript -->
   <script src="main.js"></script>
+  <script src="formValidate.js"></script>
 </body>
 
 </html>

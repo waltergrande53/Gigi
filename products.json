@@ -4,134 +4,160 @@
       "sys": { "id": "1" },
       "fields": {
         "title": "Skittles",
-        "size":"Small",
-        "price": 5.00,
+        "size":"8oz",
+        "price": 8.00,
         "image": { "fields": { "file": { "url": "./images/product-1.jpeg" } } }
       }
     },
-     {
-       "sys": { "id": "2" },
-       "fields": {
-         "title": "Skittles",
-          "size":"Medium",
-         "price": 8.00,
-         "image": { "fields": { "file": { "url": "./images/product-1.jpeg" } } }
-       }
-     },
-    {
-         "sys": { "id": "3" },
-         "fields": {
-           "title": "Skittles",
-           "size": "Big",
-           "price": 10.00,
-           "image": { "fields": { "file": { "url": "./images/product-1.jpeg" } } }
-         }
-       }, 
        {
-      "sys": { "id": "4" },
+      "sys": { "id": "2" },
       "fields": {
         "title": "Sour patch watermelon",
-         "size":"Small",
-        "price": 5.00,
+         "size":"8oz",
+        "price": 8.00,
         "image": { "fields": { "file": { "url": "./images/product-2.jpeg" } } }
       }
     },
-    {
-          "sys": { "id": "5" },
-          "fields": {
-            "title": "Sour patch watermelon",
-            "size":"Medium",
-            "price": 8.00,
-            "image": { "fields": { "file": { "url": "./images/product-2.jpeg" } } }
-          }
-        },
-        {
-              "sys": { "id": "6" },
-              "fields": {
-                "title": "Sour patch watermelon",
-                 "size": "Big",
-                "price": 10.00,
-                "image": { "fields": { "file": { "url": "./images/product-2.jpeg" } } }
-              }
-            }, 
-            {
-      "sys": { "id": "7" },
+      {
+      "sys": { "id": "3" },
       "fields": {
         "title": "Gummy bears",
-        "size":"Small",
-        "price": 5.00,
+        "size":"8oz",
+        "price": 7.50,
         "image": { "fields": { "file": { "url": "./images/product-3.jpeg" } } }
       }
     },
-    {
-        "sys": { "id": "8" },
-        "fields": {
-          "title": "Gummy bears",
-            "size":"Medium",
-          "price": 8.00,
-          "image": { "fields": { "file": { "url": "./images/product-3.jpeg" } } }
-        }
-        }, 
-        {
-           "sys": { "id": "9" },
-            "fields": {
-              "title": "Gummy bears",
-               "size": "Big",
-              "price": 10.00,
-              "image": { "fields": { "file": { "url": "./images/product-3.jpeg" } } }
-            }
-            },
+   
             {
-      "sys": { "id": "10" },
+      "sys": { "id": "4" },
       "fields": {
-        "title": "Peaches",
-        "size":"Small",
-        "price": 5.00,
+        "title": "Peach Rings",
+        "size":"8oz",
+        "price": 7.50,
         "image": { "fields": { "file": { "url": "./images/product-4.jpeg" } } }
       }
     },
-{
-            "sys": { "id": "11" },
-            "fields": {
-              "title": "Peaches",
-               "size":"Medium",
-              "price": 8.00,
-              "image": { "fields": { "file": { "url": "./images/product-4.jpeg" } } }
-            }
-          }, 
-                {
-                  "sys": { "id": "12" },
-                  "fields": {
-                    "title": "Peaches",
-                    "size": "Big",
-                    "price": 10.00,
-                    "image": { "fields": { "file": { "url": "./images/product-4.jpeg" } } }
-                  }
-                }, {
-      "sys": { "id": "5" },
-      "fields": {
-        "title": "Sour patch kids",
-         "size": "Small",
-        "price": 5.00,
-        "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
-      }
-      },{
-        "sys": { "id": "5" },
-        "fields": {
-          "title": "Sour patch kids",
-           "size": "Medium",
-          "price": 8.00,
-          "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
-        }
-        },{
+  {
           "sys": { "id": "5" },
           "fields": {
             "title": "Sour patch kids",
-             "size": "Big",
+             "size": "8oz",
             "price": 10.00,
             "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
           }
-          
+        },
+        {
+          "sys": { "id": "6" },
+          "fields": {
+            "title": "Gushers",
+             "size": "8oz",
+            "price": 9.00,
+            "image": { "fields": { "file": { "url": "images/product-6.jpeg" } } }
+          }
+        },
+        {
+          "sys": { "id": "7" },
+          "fields": {
+            "title": "Party tray",
+             "size": "Normal",
+            "price": 30.00,
+            "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+          }
+        },
+        {
+          "sys": { "id": "8" },
+          "fields": {
+            "title": "Strawberry Tuberoos",
+             "size": "8oz",
+            "price": 7.00,
+            "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+          }  },
+          {
+            "sys": { "id": "9" },
+            "fields": {
+              "title": "Tamarindo Apples",
+               "size": "",
+              "price": 5.00,
+              "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+            }  },
+            {
+              "sys": { "id": "10" },
+              "fields": {
+                "title": "Rim Paste",
+                 "size": "",
+                "price": 14.00,
+                "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+              }  },
+              {
+                "sys": { "id": "11" },
+                "fields": {
+                  "title": "MicheBombs",
+                   "size": "",
+                  "price": 10.00,
+                  "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                }
+              },
+              {
+                "sys": { "id": "12" },
+                "fields": {
+                  "title": "Crazy Chips",
+                   "size": "One bag",
+                  "price": 8.00,
+                  "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                }  },
+                {
+                  "sys": { "id": "13" },
+                  "fields": {
+                    "title": "Sandia Loca",
+                     "size": "Normal",
+                    "price": 12.00,
+                    "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                  }
+                },
+                {
+                  "sys": { "id": "14" },
+                  "fields": {
+                    "title": "Sandia Loca",
+                     "size": "Supreme",
+                    "price": 18.00,
+                    "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                  }  },
+                  {
+                    "sys": { "id": "15" },
+                    "fields": {
+                      "title": "Pepinos locos",
+                       "size": "",
+                      "price": 6.00,
+                      "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                    }
+                  },
+                  {
+                    "sys": { "id": "16" },
+                    "fields": {
+                      "title": "Fruit Platters",
+                       "size": "",
+                      "price": 25.00,
+                      "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                    }
+                  },
+                  {
+                    "sys": { "id": "17" },
+                    "fields": {
+                      "title": "Fruite Cup",
+                       "size": "",
+                      "price": 8.00,
+                      "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                    }
+                  },
+                  {
+                    "sys": { "id": "6" },
+                    "fields": {
+                      "title": "Mangoneada",
+                       "size": "",
+                      "price": 5.00,
+                      "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                    }
+
     }
   ]
 }

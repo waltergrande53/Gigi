@@ -19,17 +19,17 @@ body {
 }
 /* --------------- Navbar ---------------- */
 .navbar-main{
-  background: var(--mainWhite);
+  background:var(--mainWhite);
   position: sticky;
   top: 0;
   height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
-  background: rgb(231, 226, 221);
+  background: rgb(231,226,221);
   z-index: 1;
 }
-.bar{
+.alert{
   position: fixed;
   top: 0;
   left: 0;
@@ -46,13 +46,14 @@ body {
 .navbar-center1 {
   width: 100%;
   max-width: 1170px;
+  
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5rem;
 }
-.close-nav{
+.close-alert{
    font-size: 1.7rem;
   cursor: pointer;
 }
@@ -60,15 +61,10 @@ body {
 .bar-info{
  text-align: center;
 }
-.medias{
-  display: flex;
-  justify-content: space-evenly;
-  justify-items: center;
-  justify-self: center;
-}
 
-.bar-overlay {
-  position:absolute;
+
+.alert-overlay {
+  position:fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -79,7 +75,7 @@ body {
   z-index: 2;
   visibility: hidden;
 }
-.showBar {
+.showAlert {
   transform: translateX(0%);
 }
 
@@ -190,7 +186,7 @@ a{
     width: 30vw;
     min-width: 450px;
   }
-  .bar{
+  .alert{
       width: 30vw;
       min-width: 450px;
   }
@@ -328,7 +324,13 @@ a{
 .alert{
   text-align: center;
 }
+.alert-btn{
+ font-weight: bold;
+}
 
 .fa-map-marker{
   color:red;
+}
+.modal-title{
+  color:black;
 }
