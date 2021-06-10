@@ -168,7 +168,7 @@ class UI {
     closeAlert.addEventListener('click',this.hideAlert)
     alertBtn.addEventListener("click",this.showAlert)
     closeCartBtn.addEventListener("click", this.hideCart);
- deleteCartbtn.addEventListener("click",this.deleteCart)
+
   }
   populateCart(cart) {
     cart.forEach(item => this.addCartItem(item));
