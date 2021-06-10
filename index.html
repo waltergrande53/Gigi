@@ -53,7 +53,7 @@
   <!-- products -->
   <section class="products" style="padding-bottom: 10rem;">
     <div class="section-title">
-      <h2 id="products">our products</h2>
+      <h2 id="products">Our products</h2>
     </div>
     <div class="products-center">
       <!-- single product -->
@@ -82,7 +82,7 @@
       <span class="close-cart"><i class="far fa-window-close"></i></span>
       <h2>your cart</h2>
       <div class="cart-content">
-        
+        <div class="cart-empty"> Cart is empty</div>
       </div>
       <div class="deliver">
         Deliver Or Pick up
@@ -107,6 +107,7 @@
       <div class="bar-info">
          <div class="alert-danger" >
         Chatsworth, CA deliver and pick up only.
+
       </div>
     </div>
     
@@ -127,28 +128,29 @@
   
       </div>
       <div class="modal-body">
-        <form>
+        <form  method="POST" data-netlify="true" action="orderPlaced.html"
+        >
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Email</label>
-            <input type="email" placeholder="email" class="form-control" id="recipient-email" />
+            <input type="email" placeholder="email" name="email" class="form-control" id="recipient-email" />
           </div>
           <div class="mb-3">
-            <label for="items-text" class="col-form-label">Items</label>
-            <textarea class="  form-control" id="items-text" disabled=true></textarea>
+            <label for="items-text" class="col-form-label">order</label>
+            <textarea class="md-textarea form-control" name="order" rows="3" role="textbox"  id="items-text" disabled=true></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn deleteCart btn-primary">Send order</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Send order</button>
-      </div>
+    
     </div>
   </div>
 </div>
 
-<<<<<<< HEAD
   <main>
 
     <div class="container-fluid mb-5">
@@ -226,7 +228,7 @@
 
                             <div class="md-form">
                               <label for="contact-message" >Your message</label>
-                              <textarea type="text" required name='massage' id="contact-message" class="md-textarea form-control" rows="3"></textarea>
+                              <textarea type="text" required name='massage'  id="contact-message" class="md-textarea form-control" rows="3"></textarea>
                               
                             </div>
 
@@ -302,9 +304,7 @@
     <!--/Copyright-->
 
   </footer>
-=======
->>>>>>> eb5c11cf728b83a90361aec405af79dd9d8ec95c
-  <!-- end of cart -->
+
   <!-- email -->
   <!-- #MDB js -->
   <script src="js/mdb.min.js"></script>

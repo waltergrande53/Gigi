@@ -59,9 +59,9 @@
           "sys": { "id": "7" },
           "fields": {
             "title": "Party tray",
-             "size": "Normal",
+             "size": "",
             "price": 30.00,
-            "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+            "image": { "fields": { "file": { "url": "images/product-7.jpeg" } } }
           }
         },
         {
@@ -70,7 +70,7 @@
             "title": "Strawberry Tuberoos",
              "size": "8oz",
             "price": 7.00,
-            "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+            "image": { "fields": { "file": { "url": "images/product-8.jpeg" } } }
           }  },
           {
             "sys": { "id": "9" },
@@ -78,7 +78,7 @@
               "title": "Tamarindo Apples",
                "size": "",
               "price": 5.00,
-              "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+              "image": { "fields": { "file": { "url": "images/product-9.jpeg" } } }
             }  },
             {
               "sys": { "id": "10" },
@@ -103,7 +103,7 @@
                   "title": "Crazy Chips",
                    "size": "One bag",
                   "price": 8.00,
-                  "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                  "image": { "fields": { "file": { "url": "images/product-12.jpeg" } } }
                 }  },
                 {
                   "sys": { "id": "13" },
@@ -111,7 +111,7 @@
                     "title": "Sandia Loca",
                      "size": "Normal",
                     "price": 12.00,
-                    "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                    "image": { "fields": { "file": { "url": "images/product-13.jpeg" } } }
                   }
                 },
                 {
@@ -120,7 +120,7 @@
                     "title": "Sandia Loca",
                      "size": "Supreme",
                     "price": 18.00,
-                    "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                    "image": { "fields": { "file": { "url": "images/product-14.jpeg" } } }
                   }  },
                   {
                     "sys": { "id": "15" },
@@ -137,7 +137,7 @@
                       "title": "Fruit Platters",
                        "size": "",
                       "price": 25.00,
-                      "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                      "image": { "fields": { "file": { "url": "images/product-16.jpeg" } } }
                     }
                   },
                   {

@@ -15,6 +15,11 @@ const alertShow= document.querySelector('.alert')
 const alertOverlay= document.querySelector('.alert-overlay')
 const closeAlert=document.querySelector('.close-alert')
 let delivery=document.querySelector('.delivery')
+let deliver=document.querySelector('.deliver')
+const cartFooter = document.querySelector('.cart-footer')
+
+const cartEmpty = document.querySelector('.cart-empty')
+
 // products
 class Products {
   async getProducts() {
@@ -34,7 +39,7 @@ class Products {
         const image = item.fields.image.fields.file.url;
         return { title,size, price, id, image };
       });
-      console.log(products);
+
 
       return products;
     } catch (error) {
@@ -134,6 +139,20 @@ class UI {
     cartContent.appendChild(div);
   }
   showCart() {
+   if (cart.length===0) {
+     checkoutBtn.style.visibility ='hidden'
+     delivery.style.visibility ='hidden'
+     deliver.style.visibility ='hidden'
+     cartFooter.style.visibility ='hidden'
+     cartEmpty.style.visibility='visible'
+   }else {
+      checkoutBtn.style.visibility='visible'
+      delivery.style.visibility ='visible'
+      deliver.style.visibility ='visible'
+      cartFooter.style.visibility ='visible'
+      cartEmpty.style.visibility ='hidden'
+      
+   }
     cartOverlay.classList.add("transparentBcg");
     cartDOM.classList.add("showCart");
   }
@@ -149,6 +168,7 @@ class UI {
     closeAlert.addEventListener('click',this.hideAlert)
     alertBtn.addEventListener("click",this.showAlert)
     closeCartBtn.addEventListener("click", this.hideCart);
+ deleteCartbtn.addEventListener("click",this.deleteCart)
   }
   populateCart(cart) {
     cart.forEach(item => this.addCartItem(item));
@@ -162,6 +182,7 @@ class UI {
     cartDOM.classList.remove("showCart");
   }
   cartLogic() {
+    console.log(cart)
     checkoutBtn.addEventListener("click", () => {
       this.checkOut();
     });
@@ -169,8 +190,8 @@ class UI {
       if (event.target.classList.contains("remove-item")) {
         let removeItem = event.target;
         let id = removeItem.dataset.id;
-        cart = cart.filter(item => item.id !== id);
-        console.log(cart);
+       cart = cart.filter(item => item.id !== id);
+
 
         this.setCartValues(cart);
         Storage.saveCart(cart);
@@ -210,7 +231,7 @@ class UI {
           buttons.forEach(button => {
             if (parseInt(button.dataset.id) === id) {
               button.disabled = false;
-              button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+              button.innerHTML = `<i class="fas fa-shopping-cart"></i>add cart`;
             }
           });
         }
@@ -219,20 +240,22 @@ class UI {
   }
   checkOut() {
     // console.log(this);
-    
+    let tempTotal = 0;
+    let itemsTotal = 0;
     let order=''
+    let deliverOption=`${delivery.value}`
   cart.map(items =>{
-   console.log(items)
-    let list = document.createElement('li')
-   
+    tempTotal += items.price * items.amount;
+    itemsTotal += items.amount;
+    let list = document.createElement('span')
+
     list.innerHTML += `${items.title},${items.size}
-     (${items.amount}), `;
+     Amount ${items.amount} `;
      order += list.innerHTML;
     
-    itemstext.value=order, `${delivery.value }`;
+    itemstext.value=`${order}, ${deliverOption}, Total ${ parseFloat(tempTotal.toFixed(2))}`  ;
   })
-    
-  cart=[]
+    cart=[]
   
     //console.log(cart.title);
     this.setCartValues(cart);
@@ -247,6 +270,7 @@ class UI {
     }
     this.hideCart();
   }
+
 }
 
 class Storage {
