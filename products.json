@@ -86,7 +86,7 @@
                 "title": "Rim Paste",
                  "size": "",
                 "price": 14.00,
-                "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                "image": { "fields": { "file": { "url": "images/product-10.jpeg" } } }
               }  },
               {
                 "sys": { "id": "11" },
@@ -128,7 +128,7 @@
                       "title": "Pepinos locos",
                        "size": "",
                       "price": 6.00,
-                      "image": { "fields": { "file": { "url": "images/product-5.jpeg" } } }
+                      "image": { "fields": { "file": { "url": "images/product-15.jpeg" } } }
                     }
                   },
                   {
@@ -150,7 +150,7 @@
                     }
                   },
                   {
-                    "sys": { "id": "6" },
+                    "sys": { "id": "18" },
                     "fields": {
                       "title": "Mangoneada",
                        "size": "",
@@ -160,4 +160,6 @@
 
     }
   ]
+}
+
 }
