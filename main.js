@@ -1,4 +1,10 @@
-
+require('dotenv').config()
+const client = contentful.createClient({
+//   // This is the space ID. A space is like a project folder in Contentful terms
+ space:process.env.MY_SPACE,
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+   accessToken: process.env.API_KEY
+});
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
 const checkoutBtn = document.querySelector(".checkout-cart");
@@ -6,7 +12,7 @@ const cartDOM = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
 const cartItems = document.querySelector(".cart-items");
 const cartTotal = document.querySelector(".cart-total");
-const cartContent = document.querySelector(".cart-content");
+const cartContent = document.querySelector(".cart-content");;
 const productsDOM = document.querySelector(".products-center");
 let cart = [];
 let itemstext = document.querySelector('#items-text')
@@ -24,19 +30,19 @@ const cartEmpty = document.querySelector('.cart-empty')
 class Products {
   async getProducts() {
     try {
-      let result = await fetch("products.json");
-      let data = await result.json();
-      // let contentful = await client.getEntries({
-      //   content_type: "comfyHouseProducts"
-      // });
+      //let result = await fetch("products.json");
+      //let data = await result.json();
+       let contentful = await client.getEntries({
+        content_type: "produtcs"
+       });
       // console.log(contentful.items);
       // console.log(data);
 
-      let products = data.items;
+      let products = contentful.items;
       products = products.map(item => {
         const { title,size, price } = item.fields;
         const { id } = item.sys;
-        const image = item.fields.image.fields.file.url;
+        const image = item.fields.images.fields.file.url;
         return { title,size, price, id, image };
       });
 
